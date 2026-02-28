@@ -4,24 +4,24 @@ Practical network scanning and service analysis in a controlled home lab environ
 
 1) SYN Scan (-sS) (nmap sS scan.png)
    ---------------------------------
-  This screenshot demonstrates a TCP SYN scan performed using
-   nmap -sS <target ip>
-  The SYN scan is also known as a "half-open" or stealth scan. Instead of completing the full TCP three-way handshake, Nmap sends a SYN packet and analyzes the         response.
+   This screenshot demonstrates a TCP SYN scan performed using
+       nmap -sS <target ip>
+   The SYN scan is also known as a "half-open" or stealth scan. Instead of completing the full TCP three-way handshake, Nmap sends a SYN packet and analyzes the      response.
 
-  HOW IT WORKS:
-  --------------
-  If the target replies with SYN-ACK -> the port is OPEN
-  If the target replies with RST -> the port is CLOSED
-  If there is no response or filtered response -> the port is FILTERED
+   HOW IT WORKS:
+   --------------
+   If the target replies with SYN-ACK -> the port is OPEN
+   If the target replies with RST -> the port is CLOSED
+   If there is no response or filtered response -> the port is FILTERED
 
-  This scan is faster and less detectable than a full TCP connect scan becuase it does not complete the connection.
+   This scan is faster and less detectable than a full TCP connect scan becuase it does not complete the connection.
 
 2) TCP Connect Scan (-sT) (nmap -sT scan.png)
    ------------------------------------------
    This screenshot demonstrates a full TCP Scan performed using
     nmap -sT <target ip>
-  The TCP connect scan is a full connection scan.
-  Instead of stopping halfway like a SYN scan, Nmap completes the entire TCP three-way handshake. It uses the operating system's normal connect function to          establish a real connection
+   The TCP connect scan is a full connection scan.
+   Instead of stopping halfway like a SYN scan, Nmap completes the entire TCP three-way handshake. It uses the operating system's normal connect function to          establish a real connection
 
    HOW IT WORKS
    ------------
@@ -31,13 +31,13 @@ Practical network scanning and service analysis in a controlled home lab environ
 
    Unlike the SYN scan, this method fully establishes the connection before closing it.
 
-3) No Ping Scan (-Pn) (nmap -Pn scan.png)
-   --------------------------------------
-   This screenshot demonstrates No ping Scan
+3)  No Ping Scan (-Pn) (nmap -Pn scan.png)
+    --------------------------------------
+    This screenshot demonstrates No ping Scan
     nmap -Pn <target ip>
-   The -Pn option tells Nmap to skip host discovery and assume the target host is online.
-   Normally, Nmap first sends ping probes (ICMP, TCP ACK, etc.) to check if the host is alive.
-   with -Pn, this step is skipped.
+    The -Pn option tells Nmap to skip host discovery and assume the target host is online.
+    Normally, Nmap first sends ping probes (ICMP, TCP ACK, etc.) to check if the host is alive.
+    with -Pn, this step is skipped.
 
     HOW IT WORKS
    --------------
@@ -51,30 +51,30 @@ Practical network scanning and service analysis in a controlled home lab environ
 
  4) Full Port Scan (-p-) ( nmap -p- scan.png)
     -----------------------------------------
-      This screenshot demonstrates Full Port Scan
+    This screenshot demonstrates Full Port Scan
        nmap -p- <target ip>
-     The -p- option in Nmap to scan all 65,535 TCP ports instead of only the default top 1000 ports
-      By default, Nmap scans the most common ports.
-     with -p-, it scans the entire TCP port range (1-65535).
+    The -p- option in Nmap to scan all 65,535 TCP ports instead of only the default top 1000 ports
+    By default, Nmap scans the most common ports.
+    with -p-, it scans the entire TCP port range (1-65535).
 
      HOW IT WORKS
      ------------
-    Nmap sends probes to every TCP port from 1 to 65535
-    If a port replies with SYN-ACK -> the port is OPEN
-    If a port replies with RST -> the port is CLOSED
-    If there is no response or filtered response -> the port is FILTERED
+     Nmap sends probes to every TCP port from 1 to 65535
+     If a port replies with SYN-ACK -> the port is OPEN
+     If a port replies with RST -> the port is CLOSED
+     If there is no response or filtered response -> the port is FILTERED
 
-   This  option useful when 
-   a)Services are running on uncommon ports
-   b)You want a complete attack surface analysis
-   c)Performing thorough reconaissance
+    This  option useful when 
+    a)Services are running on uncommon ports
+    b)You want a complete attack surface analysis
+    c)Performing thorough reconaissance
 
-5) Service Version Detection(-sV) and OS detection (-O) (nmap -sS -sV -O scan.png)
-   -----------------------------------------------------   
-  -sV
-  ----
-  The -sV option in Nmap enable services and version detection on open ports.
-  After identifying open ports, Nmap sends additional probes to determine wich service is running and its version
+5)  Service Version Detection(-sV) and OS detection (-O) (nmap -sS -sV -O scan.png)
+    -----------------------------------------------------   
+   -sV
+   ----
+   The -sV option in Nmap enable services and version detection on open ports.
+   After identifying open ports, Nmap sends additional probes to determine wich service is running and its version
 
   HOW IT WORKS
   -------------
