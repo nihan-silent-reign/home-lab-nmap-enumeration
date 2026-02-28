@@ -40,7 +40,7 @@ Practical network scanning and service analysis in a controlled home lab environ
     with -Pn, this step is skipped.
 
     HOW IT WORKS
-   --------------
+    --------------
    Nmap does not send ping requests before scanning
    It assumes the host is UP
    It proceeds directly to port scanning
